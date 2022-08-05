@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.tmd.repository.IStaffRepository"/>
+    <fullyQualifiedTypeName name="java.awt.print.Pageable"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable"/>
+    <fullyQualifiedTypeName name="com.tmd.constant.SystemConstant"/>
+</qualifiedTypeNameHistroy>

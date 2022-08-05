@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+D:\duyanh\QLBV_Web\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+763284296.index
+1959888723.index
+1720773554.index
+1561166531.index
+2994384541.index
+1528474977.index
+1524179884.index

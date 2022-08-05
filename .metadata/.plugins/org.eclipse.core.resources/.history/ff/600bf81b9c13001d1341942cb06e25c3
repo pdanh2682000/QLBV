@@ -1,0 +1,5 @@
+package com.tmd.controller;
+
+public class HomeController {
+
+}

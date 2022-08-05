@@ -1,0 +1,27 @@
+package com.tmd.repository.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.tmd.dto.StaffDTO;
+import com.tmd.repository.IStaffRepository;
+
+public class StaffRepository implements IStaffRepository {
+
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
+	public List<StaffDTO> findAll() {
+		
+		return jdbcTemplate.query("select manv, holot, ten, taikhoan from current.dmnhanvien",
+				(rs, rowNum) -> new StaffDTO(
+						rs.getString("manv"),
+						rs.getString("hoten"),
+						rs.getString("ten"),
+						rs.getString("taikhoan")
+				));
+	}
+
+}

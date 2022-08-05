@@ -1,0 +1,5 @@
+package com.tmd.repository.impl;
+
+public class StaffRepository {
+
+}

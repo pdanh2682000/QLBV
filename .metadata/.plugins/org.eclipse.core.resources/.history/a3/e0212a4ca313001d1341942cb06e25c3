@@ -1,0 +1,195 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file=""%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0,maximum-scale=1">
+
+<title>Admin</title>
+<!-- Google Font: Source Sans Pro -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome Icons -->
+<link rel="stylesheet"
+	href="<c:url value='/templates/admin/plugins/fontawesome-free/css/all.min.css' />">
+<!-- overlayScrollbars -->
+<link rel="stylesheet"
+	href="<c:url value='/templates/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css' />">
+<!-- Theme style -->
+<link rel="stylesheet"
+	href="<c:url value='/templates/admin/dist/css/adminlte.min.css' />">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
+<!-- sweet alert  -->
+<script
+	src="<c:url value='/templates/admin/sweetalert/sweetalert2.min.js' />"></script>
+<link rel="stylesheet"
+	href="<c:url value='/templates/admin/sweetalert/sweetalert2.min.css' />" />
+<style>
+form .error {
+	color: yellow;
+}
+
+table th, td {
+	text-align: center;
+}
+
+input[type=radio] {
+	margin-left: 40px;
+}
+
+#myRadioButton label {
+	padding: 10px;
+}
+</style>
+</head>
+<body
+	class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+
+	<div class="wrapper">
+
+		<%@ include file="/commons/admin/header.jsp"%>
+		<div class="content-wrapper">
+
+			<div class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="card">
+								<div class="card-header border-0">
+									<div class="d-flex justify-content-between">
+										<h3 class="card-title">Online Store Visitors</h3>
+										<a href="javascript:void(0);">View Report</a>
+									</div>
+								</div>
+								<div class="card-body">
+									<div class="d-flex">
+										<p class="d-flex flex-column">
+											<span class="text-bold text-lg" id="visitCounter"></span> <span>Visitors
+												Over Time</span>
+										</p>
+
+										<p class="ml-auto d-flex flex-column text-right">
+											<span class="text-success"> <i class="fas fa-arrow-up"></i>
+												12.5%
+											</span> <span class="text-muted">Since last week</span>
+										</p>
+									</div>
+									<!-- /.d-flex -->
+
+									<div class="position-relative mb-4">
+										<canvas id="visitors-chart" height="200"></canvas>
+									</div>
+
+									<div class="d-flex flex-row justify-content-end">
+										<span class="mr-2"> <i
+											class="fas fa-square text-primary"></i> This Week
+										</span> <span> <i class="fas fa-square text-gray"></i> Last
+											Week
+										</span>
+									</div>
+								</div>
+								<button id="reset"
+									style="margin-top: 20px; background-color: #008cba; cursor: pointer; font-size: 18px; padding: 8px 20px; color: white; border: 0;">Reset
+									Visitors Count</button>
+							</div>
+							<!-- /.card -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+		<%@include file="/commons/admin/footer.jsp"%>
+
+	</div>
+
+
+	<!-- REQUIRED SCRIPTS -->
+	<!-- jQuery -->
+	<script
+		src="<c:url value='/templates/admin/plugins/jquery/jquery.min.js' />"></script>
+	<!-- Bootstrap -->
+	<script
+		src="<c:url value='/templates/admin/plugins/bootstrap/js/bootstrap.bundle.min.js' />"></script>
+	<!-- overlayScrollbars -->
+	<script
+		src="<c:url value='/templates/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' />"></script>
+	<!-- AdminLTE App -->
+	<script src="<c:url value='/templates/admin/dist/js/adminlte.js' />"></script>
+
+	<!-- PAGE PLUGINS -->
+	<!-- jQuery Mapael -->
+	<script
+		src="<c:url value='/templates/admin/plugins/jquery-mousewheel/jquery.mousewheel.js' />"></script>
+	<script
+		src="<c:url value='/templates/admin/plugins/raphael/raphael.min.js' />"></script>
+	<script
+		src="<c:url value='/templates/admin/plugins/jquery-mapael/jquery.mapael.min.js' />"></script>
+	<script
+		src="<c:url value='/templates/admin/plugins/jquery-mapael/maps/usa_states.min.js' />"></script>
+	<!-- ChartJS -->
+	<script
+		src="<c:url value='/templates/admin/plugins/chart.js/Chart.min.js' />"></script>
+
+	<!-- AdminLTE for demo purposes -->
+	<script src="<c:url value='/templates/admin/dist/js/demo.js' />"></script>
+	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+	<script
+		src="<c:url value='/templates/admin/dist/js/pages/dashboard2.js' />"></script>
+	<script type="module"
+		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule
+		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	<script
+		src="<c:url value='/templates/paging/jquery.twbsPagination.js'/>"></script>
+	<!-- CKEDITOR -->
+	<script src="<c:url value='/ckeditor/ckeditor.js' />"></script>
+	<script>
+		var menu = '${menu}';
+		$(document).ready(function() {
+			switch (menu) {
+			case 'menu_film': {
+				$("#menu_film").removeClass('active');
+				$("#menu_film").addClass('active');
+				break;
+			}
+			case 'menu_category': {
+				$("#menu_category").removeClass('active');
+				$("#menu_category").addClass('active');
+				break;
+			}
+			case 'menu_role': {
+				$("#menu_role").removeClass('active');
+				$("#menu_role").addClass('active');
+				break;
+			}
+			case 'menu_user': {
+				$("#menu_user").removeClass('active');
+				$("#menu_user").addClass('active');
+				break;
+			}
+			case 'menu_episode': {
+				$("#menu_episode").removeClass('active');
+				$("#menu_episode").addClass('active');
+				break;
+			}
+			case 'menu_advertise': {
+				$("#menu_advertise").removeClass('active');
+				$("#menu_advertise").addClass('active');
+				break;
+			}
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+package com.tmd.repository.impl;
+
+import java.util.List;
+
+import com.tmd.dto.StaffDTO;
+import com.tmd.repository.IStaffRepository;
+
+public class StaffRepository implements IStaffRepository {
+
+	@Override
+	public List<StaffDTO> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,39 @@
+package com.tmd.controller.admin;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.tmd.dto.StaffDTO;
+import com.tmd.output.OutputResponse;
+import com.tmd.service.IStaffService;
+
+@Controller(value = "homeControllerOfAdmin")
+public class HomeController {
+
+	@Autowired
+	private IStaffService staffService;
+	
+	@RequestMapping("/admin")
+	public ModelAndView homeAdmin() {
+		ModelAndView mav = new ModelAndView("admin/home");
+		return mav;
+	}
+	
+	@RequestMapping("admin/staff/list")
+	public ModelAndView listStaff() {
+		ModelAndView mav = new ModelAndView("admin/staff/list");
+		List<StaffDTO> listStaff = staffService.findAll();
+		OutputResponse<StaffDTO> out = new OutputResponse<>();
+		out.setPage(1);
+		out.setLimit(10);
+		out.setResults(listStaff);
+		out.setTotalItem(staffService.count());
+		out.setTotalPage((int) Math.ceil((double) out.getTotalItem() / out.getLimit()));
+		mav.addObject("list_staff", out);
+		return mav;
+	}
+}
