@@ -4,4 +4,7 @@
     <fullyQualifiedTypeName name="java.awt.print.Pageable"/>
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable"/>
     <fullyQualifiedTypeName name="com.tmd.constant.SystemConstant"/>
+    <fullyQualifiedTypeName name="com.tmd.repository.IStatusRepository"/>
+    <fullyQualifiedTypeName name="com.tmd.repository.ICategoryStaffRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.jdbc.core.ResultSetExtractor"/>
 </qualifiedTypeNameHistroy>

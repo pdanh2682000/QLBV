@@ -13,3 +13,6 @@
 1659593922653	Rename type 'IStaffRepository'
 1659593939515	Rename type 'StaffRepository'
 1659594096387	Delete element
+1659663265887	Infer generic type arguments
+1659663279239	Infer generic type arguments
+1659669766943	Rename type 'CategoryStaffServic'

@@ -7,6 +7,8 @@ import com.tmd.dto.StaffDTO;
 public interface IStaffRepository {
 
 	List<StaffDTO> findAll();
-	long count();
 	List<StaffDTO> findAllForPaging(Integer limit, Integer offset);
+	StaffDTO findByMaNv(String manv);
+	long count();
+	
 }

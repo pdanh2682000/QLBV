@@ -1,0 +1,5 @@
+package com.tmd.service;
+
+public interface ILevelService {
+
+}

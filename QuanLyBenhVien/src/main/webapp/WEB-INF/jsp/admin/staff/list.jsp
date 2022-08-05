@@ -40,12 +40,15 @@
 		<table class="table table-bordered">
 			<thead>
 				<tr>
-					<th>All<input type="checkbox" onClick="checkAll(this)"></th>
+					<th>All<br> <input type="checkbox" onClick="checkAll(this)"></th>
 					<th>Họ lót</th>
 					<th>Tên</th>
 					<th>Tài khoản</th>
 					<th>SĐT</th>
 					<th>Email</th>
+					<th>Trạng thái</th>
+					<th>Loại NV</th>
+					<th>Trình độ</th>
 					<th>Thao tác</th>
 				</tr>
 			</thead>
@@ -59,6 +62,9 @@
 						<td>${item.taikhoan}</td>
 						<td>${item.mobile}</td>
 						<td>${item.email}</td>
+						<td>${item.trangthai}</td>
+						<td>${item.loai}</td>
+						<td>${item.trinhdo}</td>
 						<td style="text-align: center;">
 							<c:url var="updateStaffURL" value="./edit">
 								<c:param name="manv" value="${item.manv}"></c:param>

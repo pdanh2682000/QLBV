@@ -6,8 +6,37 @@ public class StaffDTO {
 	private String holot;
 	private String ten;
 	private String taikhoan;
+	private String matkhau;
 	private String mobile;
 	private String email;
+	private String trangthai;
+	private String loai;
+	private String trinhdo;
+	
+	public String getMatkhau() {
+		return matkhau;
+	}
+	public void setMatkhau(String matkhau) {
+		this.matkhau = matkhau;
+	}
+	public String getTrinhdo() {
+		return trinhdo;
+	}
+	public void setTrinhdo(String trinhdo) {
+		this.trinhdo = trinhdo;
+	}
+	public String getLoai() {
+		return loai;
+	}
+	public void setLoai(String loai) {
+		this.loai = loai;
+	}
+	public String getTrangthai() {
+		return trangthai;
+	}
+	public void setTrangthai(String trangthai) {
+		this.trangthai = trangthai;
+	}
 	public String getManv() {
 		return manv;
 	}
@@ -45,7 +74,9 @@ public class StaffDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public StaffDTO(String manv, String holot, String ten, String taikhoan, String mobile, String email) {
+	public StaffDTO(String manv, String holot, String ten, String taikhoan,
+					String mobile, String email, String trangthai, String loai,
+					String trinhdo) {
 		super();
 		this.manv = manv;
 		this.holot = holot;
@@ -53,5 +84,13 @@ public class StaffDTO {
 		this.taikhoan = taikhoan;
 		this.mobile = mobile;
 		this.email = email;
+		this.trangthai = trangthai;
+		this.loai = loai;
+		this.trinhdo = trinhdo;
 	}
+	public StaffDTO() {
+		super();
+	}
+	
+	
 }
