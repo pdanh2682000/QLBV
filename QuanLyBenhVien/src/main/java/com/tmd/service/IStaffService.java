@@ -8,6 +8,9 @@ public interface IStaffService {
 
 	List<StaffDTO> findAll();
 	List<StaffDTO> findAllForPaging(Integer limit, Integer offset);
+	List<StaffDTO> findAllForSearch(String contentSearch);
 	StaffDTO findByMaNv(String manv);
 	long count();
+	int save(StaffDTO staff);
+	int update(StaffDTO staff);
 }

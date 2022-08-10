@@ -12,7 +12,21 @@ public class StaffDTO {
 	private String trangthai;
 	private String loai;
 	private String trinhdo;
+	private String chucvu;
+	private String donvi;
 	
+	public String getChucvu() {
+		return chucvu;
+	}
+	public void setChucvu(String chucvu) {
+		this.chucvu = chucvu;
+	}
+	public String getDonvi() {
+		return donvi;
+	}
+	public void setDonvi(String donvi) {
+		this.donvi = donvi;
+	}
 	public String getMatkhau() {
 		return matkhau;
 	}
@@ -76,7 +90,7 @@ public class StaffDTO {
 	}
 	public StaffDTO(String manv, String holot, String ten, String taikhoan,
 					String mobile, String email, String trangthai, String loai,
-					String trinhdo) {
+					String trinhdo, String chucvu, String donvi) {
 		super();
 		this.manv = manv;
 		this.holot = holot;
@@ -87,6 +101,8 @@ public class StaffDTO {
 		this.trangthai = trangthai;
 		this.loai = loai;
 		this.trinhdo = trinhdo;
+		this.chucvu = chucvu;
+		this.donvi = donvi;
 	}
 	public StaffDTO() {
 		super();

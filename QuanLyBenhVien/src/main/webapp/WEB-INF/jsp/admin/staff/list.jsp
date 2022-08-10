@@ -5,6 +5,7 @@
 <c:url var="StaffAPI" value="/api/staff"/>
 <c:url var="StaffURL" value="/admin/staff/list"/>
 <c:url var="CreateStaffURL" value="./edit" />
+<c:url var="SearchStaffURL" value="./search" />
 
 <!DOCTYPE html>
 <html>
@@ -13,10 +14,36 @@
 <title>Danh sách nhân viên</title>
 </head>
 <body>
+<c:if test="${not empty message}">
+	<div class="alert alert-${alert}" id="messageAndAlert">
+		${contentMessage}
+	</div>
+</c:if>
+<c:if test="${empty message}">
+	<c:if test="${param.message != null}">
+		<div class="alert alert-${param.alert}" id="messageAndAlert">
+			${contentMessage}
+		</div>
+	</c:if>
+</c:if>
 	<div class="widget-box table-filter">
 		<div class="table-btn-controls">
 			<div class="pull-right tableTools-container">
 				<h1 class="text-center" style="color: yellowgreen;">Danh sách nhân viên</h1>
+				<form action="${SearchStaffURL}"  class="form-inline" style="padding: 10px; float: left; background-color: cadetblue;">
+					<div class="input-group input-group-sm">
+						<input class="form-control form-control-navbar" type="search"
+							placeholder="Mã nhân viên, tên, tài khoản" aria-label="Search"
+							style="width: 200px;"
+							name="contentSearch"
+							value = "${contentValueSearch}">
+						<div class="input-group-append">
+							<button class="btn btn-navbar" type="submit">
+								<i class="fas fa-search"></i>
+							</button>
+						</div>
+					</div>
+				</form>
 				<div class="dt-buttons btn-overlap btn-group" style="float: right; padding-bottom: 10px;">
 					
 					<a flag="info"
@@ -49,6 +76,8 @@
 					<th>Trạng thái</th>
 					<th>Loại NV</th>
 					<th>Trình độ</th>
+					<th>Đơn vị</th>
+					<th>Chức vụ</th>
 					<th>Thao tác</th>
 				</tr>
 			</thead>
@@ -65,6 +94,8 @@
 						<td>${item.trangthai}</td>
 						<td>${item.loai}</td>
 						<td>${item.trinhdo}</td>
+						<td>${item.donvi}</td>
+						<td>${item.chucvu}</td>
 						<td style="text-align: center;">
 							<c:url var="updateStaffURL" value="./edit">
 								<c:param name="manv" value="${item.manv}"></c:param>

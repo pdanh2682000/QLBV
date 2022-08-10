@@ -1,0 +1,19 @@
+package com.tmd.service.impl;
+
+import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.stereotype.Service;
+
+@Service
+public class MD5HashService {
+	
+	public void givenPassword_whenHashingUsingCommons_thenVerifying()  {
+	    String hash = "35454B055CC325EA1AF2126E27707052";
+	    String password = "ILoveJava";
+
+	    String md5Hex = DigestUtils
+	      .md5Hex(password).toUpperCase();
+	        
+	    boolean result = md5Hex.equals(hash);
+	    System.out.println(result);
+	}
+}

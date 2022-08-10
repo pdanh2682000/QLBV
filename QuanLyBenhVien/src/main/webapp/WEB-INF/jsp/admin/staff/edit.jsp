@@ -8,6 +8,7 @@
 <title>Edit Staff</title>
 </head>
 <body>
+
 	<div class="panel panel-primary" style="padding: 20px;">
 		<div class="panel-heading">
 		
@@ -22,8 +23,15 @@
 		<div class="panel-body">
 			<c:if test="${not empty message}">
 				<div class="alert alert-${alert}" id="messageAndAlert">
-					<spring:message code="${message}" />
+					${contentMessage}
 				</div>
+			</c:if>
+			<c:if test="${empty message}">
+				<c:if test="${param.message != null}">
+					<div class="alert alert-${param.alert}" id="messageAndAlert">
+						${contentMessage}
+					</div>
+				</c:if>
 			</c:if>
 			<form:form modelAttribute="staffDTO" method="POST" enctype="multipart/form-data">
 				<form:errors cssClass="error" />
@@ -39,17 +47,27 @@
 						id="inputten" placeholder="A" />
 					<form:errors path="ten" cssClass="error" />
 				</div>
+				<c:if test="${empty staffDTO.manv}">
+					<div class="form-group">
+						<form:label path="taikhoan">Tài khoản</form:label>
+						<form:input path="taikhoan" type="text" class="form-control"
+							id="inputtaikhoan" />
+						<form:errors path="taikhoan" cssClass="error" />
+					</div>
+					<div class="form-group">
+						<form:label path="matkhau">Mật khẩu:</form:label>
+						<form:input path="matkhau" type="text" class="form-control"
+							id="inputmatkhau" />
+						<form:errors path="matkhau" cssClass="error" />
+					</div>
+				</c:if>
 				<div class="form-group">
-					<form:label path="taikhoan">Tài khoản</form:label>
-					<form:input path="taikhoan" type="text" class="form-control"
-						id="inputtaikhoan" />
-					<form:errors path="taikhoan" cssClass="error" />
-				</div>
-				<div class="form-group">
-					<form:label path="matkhau">Mật khẩu:</form:label>
-					<form:input path="matkhau" type="text" class="form-control"
-						id="inputmatkhau" />
-					<form:errors path="matkhau" cssClass="error" />
+					<form:label path="trangthai">Trạng thái:</form:label>
+					<form:select id="trangthai" path="trangthai">
+				  	 	<form:option value="" label="--- Chọn trạng thái ---" />
+				  	 	<form:options items="${statuses}" />
+					</form:select>
+					<form:errors path="trangthai" cssClass="error" />
 				</div>
 				<div class="form-group">
 					<form:label path="loai">Loại:</form:label>
@@ -68,6 +86,22 @@
 					<form:errors path="trinhdo" cssClass="error" />
 				</div>
 				<div class="form-group">
+					<form:label path="chucvu">Chức vụ:</form:label>
+					<form:select id="chucvu" path="chucvu">
+				  	 	<form:option value="" label="--- Chọn chức vụ ---" />
+				  	 	<form:options items="${positions}" />
+					</form:select>
+					<form:errors path="chucvu" cssClass="error" />
+				</div>
+				<div class="form-group">
+					<form:label path="donvi">Đơn vị:</form:label>
+					<form:select id="donvi" path="donvi">
+				  	 	<form:option value="" label="--- Chọn đơn vị ---" />
+				  	 	<form:options items="${units}" />
+					</form:select>
+					<form:errors path="donvi" cssClass="error" />
+				</div>
+				<div class="form-group">
 					<form:label path="mobile">Điện thoại</form:label>
 					<form:input path="mobile" type="text" class="form-control"
 						id="inputmobile" />
@@ -80,7 +114,7 @@
 					<form:errors path="email" cssClass="error" />
 				</div>
 				
-				<form:hidden path="manv" id="manv"/>
+				<%-- <form:hidden path="manv" id="manv"/> --%>
 				<c:if test="${not empty staffDTO.manv}">
 					<button type="submit" class="btn btn-primary">Cập nhật</button>
 				</c:if>

@@ -4,11 +4,19 @@
     <fullyQualifiedTypeName name="java.awt.print.Pageable"/>
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable"/>
     <fullyQualifiedTypeName name="com.tmd.constant.SystemConstant"/>
-    <fullyQualifiedTypeName name="com.tmd.repository.IStatusRepository"/>
     <fullyQualifiedTypeName name="org.springframework.jdbc.core.ResultSetExtractor"/>
     <fullyQualifiedTypeName name="com.tmd.repository.ILevelRepository"/>
     <fullyQualifiedTypeName name="com.tmd.repository.ICategoryStaffRepository"/>
     <fullyQualifiedTypeName name="com.tmd.service.ICategoryStaffService"/>
     <fullyQualifiedTypeName name="com.tmd.service.ILevelService"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="com.tmd.service.IUnitService"/>
+    <fullyQualifiedTypeName name="com.tmd.repository.IUnitRepository"/>
+    <fullyQualifiedTypeName name="com.tmd.service.IPositionService"/>
+    <fullyQualifiedTypeName name="com.tmd.repository.IPositionRepository"/>
+    <fullyQualifiedTypeName name="org.apache.commons.codec.digest.DigestUtils"/>
+    <fullyQualifiedTypeName name="com.tmd.service.impl.MD5HashService"/>
+    <fullyQualifiedTypeName name="com.tmd.repository.IStatusRepository"/>
+    <fullyQualifiedTypeName name="com.tmd.service.IStaffService"/>
+    <fullyQualifiedTypeName name="com.tmd.service.IStatusService"/>
 </qualifiedTypeNameHistroy>
