@@ -1,5 +1,0 @@
-package com.tmd.repository.impl;
-
-public class StatusRepository {
-
-}

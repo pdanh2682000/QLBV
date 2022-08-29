@@ -1,5 +1,0 @@
-package com.tmd.repository;
-
-public interface ILevelRepository {
-
-}

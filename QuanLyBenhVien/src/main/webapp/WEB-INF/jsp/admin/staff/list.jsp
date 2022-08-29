@@ -6,6 +6,7 @@
 <c:url var="StaffURL" value="/admin/staff/list"/>
 <c:url var="CreateStaffURL" value="./edit" />
 <c:url var="SearchStaffURL" value="./search" />
+<c:url var="SearchAdvanceStaffURL" value="/admin/staff/searchAdvance" />
 
 <!DOCTYPE html>
 <html>
@@ -31,6 +32,7 @@
 			<div class="pull-right tableTools-container">
 				<h1 class="text-center" style="color: yellowgreen;">Danh sách nhân viên</h1>
 				<form action="${SearchStaffURL}"  class="form-inline" style="padding: 10px; float: left; background-color: cadetblue;">
+					<a href="${SearchAdvanceStaffURL}" style="padding-right: 10px; color: aqua;">Tìm kiếm nâng cao</a>
 					<div class="input-group input-group-sm">
 						<input class="form-control form-control-navbar" type="search"
 							placeholder="Mã nhân viên, tên, tài khoản" aria-label="Search"
@@ -43,7 +45,30 @@
 							</button>
 						</div>
 					</div>
+					
+					
 				</form>
+				<button class="btn btn-warning" style="margin-left: 10px;" id="exportExcel">
+					<i class="fa fa-table"></i> Xuất Excel
+				</button>
+				<script>
+					$('#exportExcel').click(function(){
+						var checkSearch = '${contentValueSearch}';
+						if(checkSearch) {
+							var a = document.createElement('a');
+						    a.href = '/api/excel/download?contentValueSearch='+checkSearch;
+						    a.setAttribute('download', 'filename');
+						    a.click();
+						}
+						else {
+							var a = document.createElement('a');
+						    a.href = '/api/excel/download';
+						    a.setAttribute('download', 'filename');
+						    a.click();
+						}
+					});
+				</script>
+				
 				<div class="dt-buttons btn-overlap btn-group" style="float: right; padding-bottom: 10px;">
 					
 					<a flag="info"
@@ -62,6 +87,7 @@
 			</div>
 		</div>
 	</div>
+
 <form action="<c:url value='/admin/staff/list'/>" id="formSubmit" method="get">
 	<div class="table-responsive">
 		<table class="table table-bordered">

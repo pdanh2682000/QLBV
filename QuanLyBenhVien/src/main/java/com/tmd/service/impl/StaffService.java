@@ -16,6 +16,7 @@ import com.tmd.repository.IPositionRepository;
 import com.tmd.repository.IStaffRepository;
 import com.tmd.repository.IStatusRepository;
 import com.tmd.repository.IUnitRepository;
+import com.tmd.request.SearchAdvanceRequest;
 import com.tmd.service.IStaffService;
 
 @Service
@@ -120,6 +121,25 @@ public class StaffService implements IStaffService {
 		Map<String, String> listPosition = positionRepository.findAllForMap();
 		List<StaffDTO> results = new ArrayList<>();
 		results.addAll(staffRepository.findAllBySearch(contentSearch));
+		for(StaffDTO dto : results) {
+			dto.setTrangthai(listStatus.get(dto.getTrangthai()));
+			dto.setLoai(listCategoryStaff.get(dto.getLoai()));
+			dto.setTrinhdo(listLevel.get(dto.getTrinhdo()));
+			dto.setDonvi(listUnit.get(dto.getDonvi()));
+			dto.setChucvu(listPosition.get(dto.getChucvu()));
+		}
+		return results;
+	}
+
+	@Override
+	public List<StaffDTO> findAllBySearchAdvance(SearchAdvanceRequest request) {
+		Map<String, String> listStatus = statusRepository.findAll();
+		Map<String, String> listCategoryStaff = categoryStaffRepository.findAllForMap();
+		Map<String, String> listLevel = levelRepository.findAll();
+		Map<String, String> listUnit = unitRepository.findAllForMap();
+		Map<String, String> listPosition = positionRepository.findAllForMap();
+		List<StaffDTO> results = new ArrayList<>();
+		results.addAll(staffRepository.findAllBySearchAdvance(request));
 		for(StaffDTO dto : results) {
 			dto.setTrangthai(listStatus.get(dto.getTrangthai()));
 			dto.setLoai(listCategoryStaff.get(dto.getLoai()));

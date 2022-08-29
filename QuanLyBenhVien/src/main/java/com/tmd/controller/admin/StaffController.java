@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.tmd.constant.SystemConstant;
 import com.tmd.dto.StaffDTO;
 import com.tmd.output.OutputResponse;
+import com.tmd.request.SearchAdvanceRequest;
 import com.tmd.service.ICategoryStaffService;
 import com.tmd.service.ILevelService;
 import com.tmd.service.IPositionService;
@@ -148,6 +149,36 @@ public class StaffController {
 		mav.addObject("list_staff", out);
 		mav.addObject("menu", "menu_staff");
 		mav.addObject("contentValueSearch", contentSearch);
+		return mav;
+	}
+	
+	@RequestMapping("/admin/staff/searchAdvance")
+	public ModelAndView searchAdvance() {
+		ModelAndView mav = new ModelAndView("admin/staff/search");
+		mav.addObject(new SearchAdvanceRequest());
+		mav.addObject("categoryStaffs", categoryStaffService.findAllForMap());
+		mav.addObject("levels", levelService.findAllForMap());
+		mav.addObject("positions", positionService.findAllForMap());
+		mav.addObject("units", unitService.findAllForMap());
+		mav.addObject("statuses", statusService.findAllForMap());
+		mav.addObject("menu", "menu_staff");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/admin/staff/searchAdvance", method = RequestMethod.POST)
+	public ModelAndView doSearchAdvance(SearchAdvanceRequest request) {
+		ModelAndView mav = new ModelAndView("admin/staff/search");
+		List<StaffDTO> listStaff = new ArrayList<>();
+		OutputResponse<StaffDTO> out = new OutputResponse<>();
+		listStaff = staffService.findAllBySearchAdvance(request);
+		out.setResults(listStaff);
+		mav.addObject("list_staff", out);
+		mav.addObject("menu", "menu_staff");
+		mav.addObject("categoryStaffs", categoryStaffService.findAllForMap());
+		mav.addObject("levels", levelService.findAllForMap());
+		mav.addObject("positions", positionService.findAllForMap());
+		mav.addObject("units", unitService.findAllForMap());
+		mav.addObject("statuses", statusService.findAllForMap());
 		return mav;
 	}
 }

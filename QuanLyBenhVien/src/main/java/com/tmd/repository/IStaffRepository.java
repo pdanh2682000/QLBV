@@ -3,6 +3,7 @@ package com.tmd.repository;
 import java.util.List;
 
 import com.tmd.dto.StaffDTO;
+import com.tmd.request.SearchAdvanceRequest;
 
 public interface IStaffRepository {
 
@@ -11,6 +12,7 @@ public interface IStaffRepository {
 	StaffDTO findByMaNv(String manv); // unique
 	StaffDTO findByTaiKhoan(String taikhoan); // unique
 	List<StaffDTO> findAllBySearch(String contentSearch);
+	List<StaffDTO> findAllBySearchAdvance(SearchAdvanceRequest request);
 	long count();
 	Integer getMaxMaNv();
 	int save(StaffDTO staff);
