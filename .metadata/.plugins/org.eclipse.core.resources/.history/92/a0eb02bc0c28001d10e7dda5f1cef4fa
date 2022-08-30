@@ -1,0 +1,38 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html lang="EN">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+	integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+	crossorigin="anonymous"></script>
+<style>
+html[lang="ja"] [lang="en"] {
+	display: none;
+}
+
+html[lang=en] [lang="ru"] {
+	display: none;
+}
+</style>
+</head>
+<body>
+	<h1>Hello World!</h1>
+	<ul class="langswitcher">
+		<li class="active"><a href="#EN" data-lang="EN">EN</a></li> the
+		<li><a href="#en" data-lang="en">En</a></li>
+	</ul>
+	<p lang="EN">Text in Russian</p>
+	<p lang="en">English text</p>
+	<script>
+		$(".langswitcher a").on("click", function(e) {
+			e.preventDefault();
+			$(".langswitcher li").removeClass("active");
+			$("html").attr("lang", $(this).data("lang"));
+			$(this).parent().addClass("active");
+		});
+	</script>
+</body>
+</html>

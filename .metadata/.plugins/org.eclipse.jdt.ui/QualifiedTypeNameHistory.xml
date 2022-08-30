@@ -19,4 +19,17 @@
     <fullyQualifiedTypeName name="com.tmd.repository.IStatusRepository"/>
     <fullyQualifiedTypeName name="com.tmd.service.IStaffService"/>
     <fullyQualifiedTypeName name="com.tmd.service.IStatusService"/>
+    <fullyQualifiedTypeName name="org.apache.poi.xssf.usermodel.XSSFWorkbook"/>
+    <fullyQualifiedTypeName name="java.io.ByteArrayOutputStream"/>
+    <fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.Sheet"/>
+    <fullyQualifiedTypeName name="com.tmd.repository.impl.StaffRepository"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.tmd.helper.excel.ExcelHelper"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpHeaders"/>
+    <fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
+    <fullyQualifiedTypeName name="org.springframework.core.io.Resource"/>
+    <fullyQualifiedTypeName name="org.apache.poi.xssf.usermodel.XSSFCellStyle"/>
+    <fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.CellStyle"/>
+    <fullyQualifiedTypeName name="java.awt.Font"/>
+    <fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.Font"/>
 </qualifiedTypeNameHistroy>

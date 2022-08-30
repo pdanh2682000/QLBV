@@ -30,7 +30,7 @@
 		<div class="table-btn-controls">
 			<div class="pull-right tableTools-container">
 				<h1 class="text-center" style="color: yellowgreen;">Danh sách nhân viên</h1>
-				<form:form modelAttribute="searchAdvanceRequest" method="POST" style="padding: 20px;" action="/admin/staff/searchAdvance">
+				<form:form id="formSearchAdvance" modelAttribute="searchAdvanceRequest" method="POST" style="padding: 20px;" action="/admin/staff/searchAdvance">
 					<form:label path="holot">Họ lót:</form:label>
 					<form:input path="holot" type="text" id="inputholot" style="color: black"/>
 					
@@ -76,6 +76,14 @@
 					<button class="btn btn-primary" type="submit">
 						Tìm kiếm <i class="fas fa-search"></i>
 					</button>
+					<button class="btn btn-warning" style="margin-left: 10px;" id="exportExcel">
+						<i class="fa fa-table"></i> Xuất Excel
+					</button>
+					<script>
+						$('#exportExcel').click(function(){
+							$('#formSearchAdvance').attr('action', '/api/excel/download');
+						});
+				</script>
 				</form:form>
 				
 				<div class="dt-buttons btn-overlap btn-group" style="float: right; padding-bottom: 10px;">
@@ -149,26 +157,7 @@
 	</div>
 </form>
 <script type="text/javascript">
-	var totalPages = ${list_staff.totalPage};
-	var currentPage = ${list_staff.page};
-	var limit = ${list_staff.limit};
-    $(function () {
-        window.pagObj = $('#pagination').twbsPagination({
-            totalPages: totalPages,
-            visiblePages: 10,
-            startPage: currentPage,
-            onPageClick: function (event, page) {
-            	if (currentPage != page) {
-        			$('#limit').val(limit);
-        			$('#page').val(page);
-        			$('#formSubmit').submit();
-            	}
-            }
-        }).on('page', function (event, page) {
-            console.info(page + ' (from event listening)');
-        });
-    });
-    
+	
     $("tbody input[type=checkbox]").on("change", function(){
     	  if ($("tbody input[type=checkbox]:checked").length > 0)
     	  {

@@ -9,9 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.tmd.request.SearchAdvanceRequest;
 import com.tmd.service.impl.ExcelService;
 
 @Controller
@@ -31,6 +33,20 @@ public class ExcelAPI {
 			file = new InputStreamResource(fileService.load());
 		else
 			file = new InputStreamResource(fileService.load(contentValueSearch));
+		return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + filename)
+				.contentType(MediaType.parseMediaType("application/vnd.ms-excel")).body(file);
+	}
+	
+	@CrossOrigin(origins = "http://localhost:8080")
+	@PostMapping("/download")
+	public ResponseEntity<Resource> getFileSearch(SearchAdvanceRequest request) {
+		String filename = "Danh_muc_nhan_vien.xlsx";
+		InputStreamResource file;
+		if(request != null)
+			file = new InputStreamResource(fileService.load(request));
+		else
+			file = new InputStreamResource(fileService.load());
+		
 		return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + filename)
 				.contentType(MediaType.parseMediaType("application/vnd.ms-excel")).body(file);
 	}

@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html lang="EN">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+	integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+	crossorigin="anonymous"></script>
+
+</head>
+<body>
+	<button id="switch-lang">Switch Language</button>
+
+<h1><span lang="en">Hello</span> <span lang="es">Hola</span></h1>
+
+<p lang="en">I really enjoy coding.</p>
+
+<p lang="es">Me gusta mucho la codificación.</p>
+</body>
+</html>
