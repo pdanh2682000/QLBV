@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Hello World!</h1>
+<form id="myForm" action="/reload" method="get">
+	<p id="change" onClick="myChange()" style="cursor: pointer;">increase</p>
+	<input type="hidden" name="contentValue">
+</form>
+<script>
+function myChange() {
+	var p = document.getElementById('change');
+	var form = document.getElementById('myForm');
+	if(p.innerText == "increase") {
+		p.innerText = "decrease";
+	}
+	else {
+		p.innerText = "increase";
+	}
+}
+</script>
+</body>
+</html>

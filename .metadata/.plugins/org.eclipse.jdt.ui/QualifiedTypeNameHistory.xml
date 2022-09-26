@@ -32,4 +32,5 @@
     <fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.CellStyle"/>
     <fullyQualifiedTypeName name="java.awt.Font"/>
     <fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.Font"/>
+    <fullyQualifiedTypeName name="com.tmd.dto.TestDTO"/>
 </qualifiedTypeNameHistroy>
